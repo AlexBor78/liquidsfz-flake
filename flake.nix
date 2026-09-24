@@ -20,6 +20,7 @@
           };
           nativeBuildInputs = with pkgs; [ autoreconfHook pkg-config ];
           buildInputs = with pkgs; [ libsndfile lv2 readline jack2 ];
+					enableParallelBuilding = true;
 					postPatch = ''
 						sed -i '1i #include <algorithm>' tests/testsynth.cc
 						sed -i '1i #include <termios.h>' src/liquidsfz.cc
